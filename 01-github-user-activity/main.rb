@@ -1,6 +1,6 @@
 require 'net/http'
 require 'json'
-require 'debug'
+require 'debug' #todo remove
 
 MESSAGES = {
   'PullRequestReviewCommentEvent' => 'Commented on a review in %{repo_name}',
@@ -38,12 +38,9 @@ rescue StandardError
 end
 
 def print_result(data)
-  all_events = data.map { |item| { item['type'] => item['repo']['name'] } }.tally
+  all_events = data.map { |item| [ item['type'], item['repo']['name'] ] }.tally
 
-  all_events.each do |repo_event, indices|
-    event      = repo_event.first[0]
-    repo_name  = repo_event.first[1]
-
+  all_events.each do |(event, repo_name), indices|
     if MESSAGES.key? event
       puts format(MESSAGES[event], indices: indices, repo_name: repo_name)
     else
