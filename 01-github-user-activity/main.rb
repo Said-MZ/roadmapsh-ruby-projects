@@ -15,6 +15,8 @@ MESSAGES = {
 }
 
 def main
+  puts 'Enter a github username to see their recent activity:'
+
   name     = gets.chomp
   # uri      = URI("https://api.github.com/users/sindresorhus/events")
   uri      = URI("https://api.github.com/users/#{name}/events")
