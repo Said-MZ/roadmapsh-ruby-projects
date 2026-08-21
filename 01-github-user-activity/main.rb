@@ -17,8 +17,7 @@ MESSAGES = {
 def main
   puts 'Enter a github username to see their recent activity:' unless ARGV[0]
 
-  name     = ARGV[0] || gets.chomp
-  # uri      = URI("https://api.github.com/users/sindresorhus/events")
+  name     = ARGV[0] || gets.chomp.delete(' ')
   uri      = URI("https://api.github.com/users/#{name}/events")
   response = fetch_data uri
 
