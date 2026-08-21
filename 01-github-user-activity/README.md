@@ -1,6 +1,7 @@
 # GitHub User Activity CLI
 
 https://github.com/Said-MZ/roadmapsh-ruby-projects/tree/main/01-github-user-activity
+
 A simple command-line tool that fetches and displays a GitHub user's recent activity, built with Ruby's standard library only (no external gems).
 
 ## Usage
